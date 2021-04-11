@@ -5,7 +5,9 @@ from odoo import http
 class Salmen(http.Controller):
     @http.route('/salmen/salmen/', auth='public')
     def index(self, **kw):
-        return "I am the Master Salmen"
+        return http.request.render('salmen.index', {
+            'teachers': ["Diana Padilla", "Jody Caroll", "Lester Vaughn"],
+        })
 
 #     @http.route('/salmen/salmen/objects/', auth='public')
 #     def list(self, **kw):
