@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+
+  <!-- Menu bouton Ajout utilisateur -->
+  <record id="menu_user_list" model="website.menu">
+    <field name="name">Liste des Utilisateurs</field>
+    <field name="url">/topnet/users</field>
+    <field name="parent_id" ref="website.main_menu" />
+    <field name="sequence">44</field>
+  </record>
+  <record id="menu_add_user_form" model="website.menu">
+    <field name="name">Créer un utilisateur</field>
+    <field name="url">/topnet/user_create</field>
+    <field name="parent_id" ref="website.main_menu" />
+    <field name="sequence">55</field>
+  </record>
+
+
+  <!-- Affichage d'utilisateurs -->
+  <template id='users_page' name='Liste des Utilisateurs'>
+    <sheet>
+      <t t-call="website.layout">
+        <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td>Nom et Prénom</td>
+                <td>Sexe</td>
+                <td>N° CIN</td>
+                <td>E-mail</td>
+              </tr>
+            </thead>
+
+            <tbody>
+              <t t-foreach="users" t-as="user">
+                <tr>
+                  <td>
+                    <t t-esc="user.name" />
+                  </td>
+                  <td>
+                    <t t-esc="user.gender" />
+                  </td>
+                  <td>
+                    <t t-esc="user.cin" />
+                  </td>
+                  <td>
+                    <t t-esc="user.email" />
+                  </td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </sheet>
+  </template>
+
+
+</odoo>
