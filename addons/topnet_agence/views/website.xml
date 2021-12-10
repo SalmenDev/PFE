@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="acess_user_group" model="res.groups">
+        <field name="name">access user</field>
+    </record>
+    <!-- comment creer un menu website (gestion user) -->
+    <record model="website.menu" id="menu_gestion_action_window">
+        <field name="group_ids" eval="[(4, ref('topnet_agence.acess_user_group'))]"/>
+        <field name="name"> Gestion des utilisateurs  </field>
+        <field name="url">/gestion_user </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (creer user) -->
+    <record model="website.menu" id="menu_utilisateur_action_window">
+        <field name="group_ids" eval="[(4, ref('topnet_agence.acess_user_group'))]"/>
+        <field name="name"> Créer un utilisateur  </field>
+        <field name="url">/creer_user </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website () -->
+    <record model="website.menu" id="menu_frais_action_window">
+        <field name="name"> Frais  </field>
+        <field name="url">/frais </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (A propos de nous) -->
+    <record model="website.menu" id="menu_nous_action_window">
+        <field name="name"> À propos de nous  </field>
+        <field name="url">/propos </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (gérer fiche) -->
+    <record model="website.menu" id="menu_fiche_action_window">
+        <field name="name"> Gestion de fiches clients </field>
+        <field name="url">/gestion_fiche </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- comment creer un menu website (liste user) -->
+    <record model="website.menu" id="menu_liste_action_window">
+        <field name="name"> Listes des utilisateurs  </field>
+        <field name="url">/liste_user </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+
+
+    <!-- comment creer un menu website (Abonnement FO) -->
+    <record model="website.menu" id="menu_abonn_action_window">
+        <field name="name"> Abonnement  </field>
+        <field name="url">/abonn </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (demander un abonnement) -->
+    <record model="website.menu" id="menu_dem_action_window">
+        <field name="name"> Demande abonnement </field>
+        <field name="url">/dem_abonn </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste user) -->
+    <record model="website.menu" id="menu_listeabonn_action_window">
+        <field name="name"> Liste demandes La Marsa</field>
+        <field name="url">/liste_dem </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (deposer dossier) -->
+    <record model="website.menu" id="menu_deposer_action_window">
+        <field name="name"> Déposer dossier </field>
+        <field name="url">/depot </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste agent bardo) -->
+    <record model="website.menu" id="menu_bardo_action_window">
+        <field name="name"> liste des agents Bardo </field>
+        <field name="url">/liste_agent_Bardo </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste agent marsa) -->
+    <record model="website.menu" id="menu_Marsa_action_window">
+        <field name="name"> liste des agents La Marsa </field>
+        <field name="url">/liste_agent_Marsa</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (creer fiche) -->
+    <record model="website.menu" id="menu_fiche_action_window">
+        <field name="name"> Créer fiche client  </field>
+        <field name="url">/creer_fiche </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (gérer agents) -->
+    <record model="website.menu" id="menu_gestagents_action_window">
+        <field name="name"> Gestion des agents  </field>
+        <field name="url"># </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (Contactez nous) -->
+    <record model="website.menu" id="menu_contactus_action_window">
+        <field name="name"> Contactez nous  </field>
+        <field name="url">/Contactez_nous </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste demande bardo) -->
+    <record model="website.menu" id="menu_listebardo_action_window">
+        <field name="name"> Liste demandes Bardo </field>
+        <field name="url">/liste_dem_Bardo </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (gerer agence) -->
+    <record model="website.menu" id="menu_agence_action_window">
+        <field name="name"> Gestion des agences </field>
+        <field name="url"># </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (creer une agence) -->
+    <record model="website.menu" id="menu_agc_action_window">
+        <field name="name"> Créer une agence  </field>
+        <field name="url">/creer_agence </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste des agence : Agence Topnet) -->
+    <record model="website.menu" id="menu_listeage_action_window">
+        <field name="name"> Agences Topnet  </field>
+        <field name="url">/liste_agences </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+    <!-- comment creer un menu website (liste des fiches client : Fiche clients) -->
+    <record model="website.menu" id="menu_listefiche_action_window">
+        <field name="name"> Fiches clients  </field>
+        <field name="url">/liste_fiches </field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+</odoo>
+
+
+

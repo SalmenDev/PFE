@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 
+
 class TopnetUser(models.Model):
      _name = 'topnet.user'
      _description = 'topnet BackOffice users'
@@ -18,4 +19,14 @@ class TopnetUser(models.Model):
      cin = fields.Integer(string='cin', required=True)
      email =fields.Char(string='Email', required=True)
      password =fields.Char(string='Password', required=True)
-     
+     role= fields.Selection(
+          [
+               ('Administrateur', 'Administrateur'), 
+               ('ChefZone', 'Chef de Zone'), 
+               ('ChefAgence', 'Chef Agence'),
+               ('Agent','Agent'),
+               ('Client','Client')
+          ], 
+          required=True, 
+          default='Agent'          
+     )

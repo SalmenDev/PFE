@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="topnet_dossier_list">
+      <field name="name">dossier list</field>
+      <field name="model">topnet_agence.dossier</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="Nom"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="topnet_dossier_form">
+      <field name="name">dossier list</field>
+      <field name="model">topnet_agence.dossier</field>
+      <field name="arch" type="xml">
+        <form>
+          <field name="Nom"/>
+        </form>
+      </field>
+    </record>
+
+      <record model="ir.actions.act_window" id="topnet_dossier_action_window">
+      <field name="name">dossier</field>
+      <field name="res_model">topnet_agence.dossier</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+      <menuitem name="dossier"
+              id="topnet_dossier_menu_1"
+              parent="topnet_agence_menu_root"
+              sequence="10"/>
+
+      <menuitem name="dossierrr"
+              id="topnet_dossier_menu"
+              parent="topnet_dossier_menu_1"
+              action="topnet_dossier_action_window"
+              sequence="10"/>
+  </data>
+</odoo>

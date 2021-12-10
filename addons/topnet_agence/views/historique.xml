@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- template de historique  -->
+    <template id="historique" name="historique">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Historique</h3>
+                                        <button type="button" onclick="window.location.href='/liste_dem';" class="btn light btn-success">
+                                            Liste des demandes
+                                            <span class="btn-icon-right"><i class="fa fa-copy"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form" method="POST" validate="True">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="date" class="form-label">Date de prise en charge</label>
+                                                        <input type="date" name="date" readonly="readonly"  t-att-value="user.date" id="date" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="agent" class="form-label">Agent Commerciale</label>
+                                                        <input type="text" name="agent" readonly="readonly"  t-att-value="user.agent" id="agent" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

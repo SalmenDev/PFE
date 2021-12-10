@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hist_topnet_list">
+      <field name="name">suivre list</field>
+      <field name="model">topnet_agence.hist</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="Date_prise"/>
+          <field name="Agent_commerciale"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hist_topnet_form">
+      <field name="name">suivre list</field>
+      <field name="model">topnet_agence.hist</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group>
+              <field name="Date_prise"></field>
+            </group>
+            <group>
+              <field name="Agent_commerciale"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="suivre_historique_action_window">
+      <field name="name"> historique </field>
+      <field name="res_model">topnet_agence.hist</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Historique"
+              id="historique_dossier_id"
+              parent="gestion-abonn_FO"
+              action="suivre_historique_action_window"/>
+
+  </data>
+</odoo>

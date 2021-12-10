@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface consulter agence -->
+
+    <template id="consult" name="coordonnées agence">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"> <t t-esc="agence.Nom"/></h3>
+                                        <button type="button" onclick="window.location.href='/liste_agences';" class="btn light btn-success">
+                                            Liste des agences
+                                            <span class="btn-icon-right"><i class="fa fa-copy"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Nom" class="form-label">Nom</label>
+                                                        <input type="text" readonly="readonly" name="Nom" class="form-control" id="nom" required="required" t-att-value="agence.Nom" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Adresse" class="form-label">Adresse</label>
+                                                        <input type="text" readonly="readonly" name="Adresse" class="form-control"
+                                                               id="Adresse" required="required" t-att-value="agence.Adresse" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Ville" class="form-label">Ville</label>
+                                                        <input type="text" readonly="readonly" name="Ville" class="form-control" id="Ville"
+                                                               required="required" t-att-value="agence.Ville" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Fax" class="form-label">Fax</label>
+                                                        <input type="text" readonly="readonly" name="Fax" class="form-control" id="Fax"
+                                                               required="required" t-att-value="agence.Fax" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

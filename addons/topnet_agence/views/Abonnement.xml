@@ -1,0 +1,115 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="abonnement_list">
+      <field name="name">abonnement list</field>
+      <field name="model">demandes_clients.abonnement</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="demandes_clients_form">
+      <field name="name">abonnement form</field>
+      <field name="model">demandes_clients.abonnement</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="ID_contrat"/>
+                        <field name="name"/>
+                        <field name="cin_pass"/>
+                        <field name="raison"/>
+                        <field name="registre"/>
+                        <field name="tva"/>
+                        <field name="Exonéré" widget="radio"/>
+                        <field name="douane"/>
+                        <field name="activity"/>
+                    </group>
+                    <group>
+                        <field name="nom"/>
+                        <field name="Tel_admi"/>
+                        <field name="gsm_admi"/>
+                        <field name="email_admi"/>
+                    </group>
+                    <group>
+                        <field name="correspondance"/>
+                        <field name="Ville"/>
+                        <field name="postale"/>
+                        <field name="tel"/>
+                        <field name="fax"/>
+                        <field name="installation"/>
+                        <field name="ville2"/>
+                        <field name="postale2"/>
+                        <field name="tel2"/>
+                        <field name="fax2"/>
+                    </group>
+                    <group>
+                        <field name="nom_tech"/>
+                        <field name="tel_tech"/>
+                        <field name="gsm_tech"/>
+                        <field name="email_tech"/>
+                        <field name="email_pri"/>
+                        <field name="type_offre"/>
+                        <field name="debit"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="demandes_clients_action_window">
+      <field name="name">Abonnement FO </field>
+      <field name="res_model">demandes_clients.abonnement</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="demandes_clients.action_server">
+      <field name="name">demandes_clients server</field>
+      <field name="model_id" ref="model_demandes_clients_demandes_clients"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+      <menuitem name="TopnetAgence"
+                id="topnet_agence_menu_root"
+                sequence="10"/>
+-->
+    <!-- menu categories -->
+
+    <menuitem name="Abonnement FO"
+              id="Abonnement_FO"
+              parent="topnet_agence_menu_root"/>
+
+<!--    <menuitem name="Menu 2" id="demandes_clients.menu_2" parent="demandes_clients.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="Liste abonnements FO"
+              id="liste_abonnements_FO"
+              parent="Abonnement_FO"
+              action="demandes_clients.action_window"/>
+<!--    <menuitem name="Server to list" id="demandes_clients" parent="demandes_clients.menu_2"
+              action="demandes_clients.action_server"/>
+-->
+  </data>
+</odoo>

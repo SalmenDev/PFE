@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+
+    <!-- Menu bouton Ajout utilisateur -->
+    <record id="menu_user" model="website.menu">
+      <field name="name">Créer un utilisateur</field>
+      <field name="url">/adduser_form</field>
+      <field name="parent_id" ref="website.main_menu" />
+      <field name="sequence" type="int">11</field>
+    </record>
+
+    <!-- Menu bouton Ajout Demande FO -->
+    <record id="menu_subscription" model="website.menu">
+      <field name="name">Demande de Souscription FO</field>
+      <field name="url">/addsubscription_form</field>
+      <field name="parent_id" ref="website.main_menu" />
+      <field name="sequence" type="int">22</field>
+    </record>
+
+    <!-- Menu bouton Suivi demande -->
+    <record id="menu_subscription" model="website.menu">
+      <field name="name">suivre mes demandes</field>
+      <field name="url">/followdemands</field>
+      <field name="parent_id" ref="website.main_menu" />
+      <field name="sequence" type="int">33</field>
+    </record>
+
+    <!-- Menu bouton Ajout Contact -->
+    <record id="menu_subscription" model="website.menu">
+      <field name="name">Gérer mes contacts</field>
+      <field name="url">/CreateContact</field>
+      <field name="parent_id" ref="website.main_menu" />
+      <field name="sequence" type="int">44</field>
+    </record>
+
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="topnet.list">
+      <field name="name">topnet list</field>
+      <field name="model">topnet.topnet</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="topnet.action_window">
+      <field name="name">topnet window</field>
+      <field name="res_model">topnet.topnet</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="topnet.action_server">
+      <field name="name">topnet server</field>
+      <field name="model_id" ref="model_topnet_topnet"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="topnet" id="topnet.menu_root"/>
+-->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="topnet.menu_1" parent="topnet.menu_root"/>
+    <menuitem name="Menu 2" id="topnet.menu_2" parent="topnet.menu_root"/>
+-->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="topnet.menu_1_list" parent="topnet.menu_1"
+              action="topnet.action_window"/>
+    <menuitem name="Server to list" id="topnet" parent="topnet.menu_2"
+              action="topnet.action_server"/>
+-->
+  </data>
+</odoo>

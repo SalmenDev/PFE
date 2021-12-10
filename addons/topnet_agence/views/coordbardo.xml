@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface consulter agent bardo -->
+    <template id="coordbardo" name="coordonnées agent Bardo">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Agent : <t t-esc="user.nom"/></h3>
+                                        <button type="button" onclick="window.location.href='/liste_agent_Bardo';" class="btn light btn-success">
+                                            Liste des agents
+                                            <span class="btn-icon-right"><i class="fa fa-agents"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="nom" class="form-label">Nom</label>
+                                                        <input type="text" readonly="readonly" name="nom" class="form-control" id="nom" required="required" t-att-value="user.nom" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="naissance" class="form-label">Date de naissance</label>
+                                                        <input type="Date" readonly="readonly" name="naissance" class="form-control"
+                                                            id="naissance" required="required" t-att-value="user.naissance" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" readonly="readonly" name="email" class="form-control" id="email"
+                                                            required="required"
+                                                            pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})"
+                                                            t-att-value="user.email" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="num_cin_num_passeport" class="form-label"> N°CIN / Passeport</label>
+                                                        <input type="text" readonly="readonly" name="num_cin_num_passeport" class="form-control"
+                                                            id="num_cin_num_passeport" required="required"
+                                                            pattern="[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}"
+                                                            t-att-value="user.num_cin_num_passeport" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="role" class="form-label"> Rôle </label>
+                                                        <input type="select" readonly="readonly" name="role" class="form-control" id="role"
+                                                            required="required" t-att-value="user.role" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="prenom" class="form-label">Prenom</label>
+                                                        <input type="text" readonly="readonly" name="prenom" class="form-control" id="prenom"
+                                                            required="required" t-att-value="user.prenom" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="adresse" class="form-label">Adresse</label>
+                                                        <input type="text" readonly="readonly" name="adresse" class="form-control" id="adresse"
+                                                            required="required" t-att-value="user.adresse" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telephone" class="form-label">Téléphone</label>
+                                                        <input type="number" readonly="readonly" name="telephone" class="form-control"
+                                                            id="telephone" required="required" t-att-value="user.telephone" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="matricule" class="form-label">Matricule</label>
+                                                        <input type="number" readonly="readonly" name="matricule" class="form-control"
+                                                            id="matricule" required="required" t-att-value="user.matricule" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="agence" class="form-label"> Agence </label>
+                                                        <input type="select" readonly="readonly" name="agence" class="form-control" id="agence"
+                                                            required="required" t-att-value="user.agence" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

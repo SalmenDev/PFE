@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface liste agent bardo -->
+    <template id="agent_list_bardo" name="Liste des agent bardo">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Liste des agents</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input id="myInput" type="search" class="form-control search_topnet"
+                                                   placeholder="Recherche..." />
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-responsive-md">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Nom</td>
+                                                        <td>Prenom</td>
+                                                        <td>Matricule</td>
+                                                        <td>Email</td>
+                                                        <td>Téléphone</td>
+                                                        <td>Rôle</td>
+                                                        <td>Agence</td>
+                                                        <td>Actions</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="myTable">
+                                                    <t t-as="admin" t-foreach="agents">
+                                                        <tr>
+                                                            <td> <t t-esc="admin.nom"/> </td>
+                                                            <td> <t t-esc="admin.prenom"/> </td>
+                                                            <td> <t t-esc="admin.matricule"/> </td>
+                                                            <td> <t t-esc="admin.email"/> </td>
+                                                            <td> <t t-esc="admin.telephone"/> </td>
+                                                            <td> <t t-esc="admin.role"/> </td>
+                                                            <td> <t t-esc="admin.agence"/> </td>
+                                                            <td>
+                                                                <a t-attf-href="/consultbardo/{{admin.id}}" class="btn btn-success btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
+                                                                <a t-attf-href="/updatebardo/{{admin.id}}" class="btn btn-warning btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

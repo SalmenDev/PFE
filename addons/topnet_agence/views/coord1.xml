@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface consulter une demande -->
+    <template id="coord1" name="Abonnement">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Demande d'abonnement : <t t-esc="user.raison"/></h3>
+                                        <button type="button" onclick="window.location.href='/liste_dem';" class="btn light btn-success">
+                                            Liste des demandes
+                                            <span class="btn-icon-right"><i class="fa fa-copy"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <div class="col-md-12">
+                                                    <h3>Coordonnées</h3>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="nom" class="form-label">Nom et Prénom du gérant</label>
+                                                        <input type="text" readonly="readonly" name="nom" class="form-control" id="nom"  required="required" t-att-value="user.nom" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="raison" class="form-label">Raison sociale</label>
+                                                        <input type="text" readonly="readonly" name="raison" class="form-control" id="raison" required="required" t-att-value="user.raison"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cinpass" class="form-label">N° CIN / Passepot</label>
+                                                        <input type="number" readonly="readonly" name="cinpass" class="form-control" id="cinpass" required="required" t-att-value="user.cinpass"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="registre" class="form-label">Registre de commerce</label>
+                                                        <input type="text" readonly="readonly" name="registre" class="form-control" id="registre" required="required" t-att-value="user.registre"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="tva" class="form-label">Code TVA</label>
+                                                        <input type="number" readonly="readonly" name="tva" class="form-control" id="tva" required="required" t-att-value="user.tva"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="Exonere" class="form-label">Exonéré</label>
+                                                        <input type="select" readonly="readonly" name="Exonere" class="form-control" id="Exonere" required="required" t-att-value="user.Exonere"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="douane" class="form-label">Code en douane</label>
+                                                        <input type="number" readonly="readonly" name="douane" class="form-control" id="douane" required="required" t-att-value="user.douane"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="activite" class="form-label">Activité de l'entreprise</label>
+                                                        <input type="text" readonly="readonly" name="activite" class="form-control" id="activite" required="required" t-att-value="user.activite"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="correspondance" class="form-label">Adresse de correspondance</label>
+                                                        <input type="text" readonly="readonly" name="correspondance" class="form-control" id="correspondance" required="required" t-att-value="user.correspondance"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label for="Ville" class="form-label">Ville</label>
+                                                        <input type="text" readonly="readonly" name="Ville" class="form-control" id="Ville" required="required" t-att-value="user.Ville" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="postale" class="form-label">Code postale</label>
+                                                        <input type="number" readonly="readonly" name="postale" class="form-control" id="postale" required="required" t-att-value="user.postale"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="tel" class="form-label">Tél</label>
+                                                        <input type="number" readonly="readonly" name="tel" class="form-control" id="tel" required="required" t-att-value="user.tel"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="fax" class="form-label">Fax</label>
+                                                        <input type="number" readonly="readonly" name="fax" class="form-control" id="fax" required="required" t-att-value="user.fax"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="installation" class="form-label">Adresse d'installation</label>
+                                                        <input type="text" readonly="readonly" name="installation" class="form-control" id="installation" required="required" t-att-value="user.installation"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label for="ville2" class="form-label">Ville</label>
+                                                        <input type="text" readonly="readonly" name="ville2" class="form-control" id="ville2" required="required" t-att-value="user.ville2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="postale2" class="form-label">Code postale</label>
+                                                        <input type="number" readonly="readonly" name="postale2" class="form-control" id="postale2" required="required" t-att-value="user.postale2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="tel2" class="form-label">Tél</label>
+                                                        <input type="number" readonly="readonly" name="tel2" class="form-control" id="tel2" required="required" t-att-value="user.tel2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="fax2" class="form-label">Fax</label>
+                                                        <input type="text" readonly="readonly" name="fax2" class="form-control" id="fax2" required="required" t-att-value="user.fax2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="email_pri" class="form-label">Email principale</label>
+                                                        <input type="email" readonly="readonly" name="email_pri" class="form-control" id="email_pri" required="required" t-att-value="user.email_pri"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="type_offre" class="form-label">Type de l'offre</label>
+                                                        <input type="text" readonly="readonly" name="type_offre" class="form-control" id="type_offre" required="required" t-att-value="user.type_offre"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="debit" class="form-label">Débit</label>
+                                                        <input type="number" readonly="readonly" name="debit" class="form-control" id="debit" required="required" t-att-value="user.debit"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h4>Contact Administratif et Financiers</h4>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="nom2" class="form-label">Nom et prénom</label>
+                                                        <input type="text" readonly="readonly" name="nom2" class="form-control" id="nom2" required="required" t-att-value="user.nom2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="Tel_admi" class="form-label">Tél</label>
+                                                        <input type="number" readonly="readonly" name="Tel_admi" class="form-control" id="Tel_admi" required="required" t-att-value="user.Tel_admi"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="gsm_admi" class="form-label">GSM</label>
+                                                        <input type="number" readonly="readonly" name="gsm_admi" class="form-control" id="gsm_admi" required="required" t-att-value="user.gsm_admi"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="email_admi" class="form-label">Email</label>
+                                                        <input type="email" readonly="readonly" name="email_admi" class="form-control" id="email_admi" required="required" t-att-value="user.email_admi"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h4>Contact Technique</h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="nom_tech" class="form-label">Nom et Prénom</label>
+                                                        <input type="text" readonly="readonly" name="nom_tech" class="form-control" id="nom_tech" required="required" t-att-value="user.nom_tech"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="email_tech" class="form-label">Email</label>
+                                                        <input type="email" readonly="readonly" name="email_tech" class="form-control" id="email_tech" required="required" t-att-value="user.email_tech"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="tel_tech" class="form-label">Tél</label>
+                                                        <input type="number" readonly="readonly" name="tel_tech" class="form-control" id="tel_tech" required="required" t-att-value="user.tel_tech" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="fax2" class="form-label">Fax</label>
+                                                        <input type="text" readonly="readonly" name="fax2" class="form-control" id="fax2" required="required" t-att-value="user.fax2"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="gsm_tech" class="form-label">GSM</label>
+                                                        <input type="number" readonly="readonly" name="gsm_tech" class="form-control" id="gsm_tech" required="required" t-att-value="user.gsm_tech"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="agence" class="form-label"> Agence </label>
+                                                        <input type="select" readonly="readonly" name="agence" class="form-control" id="agence"
+                                                               required="required" t-att-value="user.agence" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

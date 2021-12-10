@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface modifier utilisateur -->
+    <template id="modifier" name="modifier user">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Utilisateur : <t t-esc="user.nom"/></h3>
+                                        <button type="button" onclick="window.location.href='/liste_user';" class="btn light btn-success">
+                                            Liste des utilisateurs
+                                            <span class="btn-icon-right"><i class="fa fa-user"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form" method="POST" validate="True">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="nom" class="form-label">Nom</label>
+                                                        <input type="text" name="nom" class="form-control" id="nom" required="required" t-att-value="user.nom" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="naissance" class="form-label">Date de naissance</label>
+                                                        <input type="Date" name="naissance" class="form-control" id="naissance" required="required" t-att-value="user.naissance"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email"  name="email" class="form-control" id="email" required="required"
+                                                               pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" t-att-value="user.email"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="num_cin_num_passeport" class="form-label"> N°CIN / Passeport</label>
+                                                        <input type="text" name="num_cin_num_passeport" class="form-control" id="num_cin_num_passeport" required="required"
+                                                               t-att-value="user.num_cin_num_passeport"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="role" class="form-label"> Rôle </label>
+                                                        <select id="role" name="role" class="form-control" required="required">
+                                                            <option value="administrateur">Administrateur</option>
+                                                            <option value="chef agence">Chef agence</option>
+                                                            <option value="agent">Agent</option>
+                                                            <option value="responsable agences">Responsable agences</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="prenom" class="form-label">Prenom</label>
+                                                        <input type="text" name="prenom" class="form-control" id="prenom" required="required" t-att-value="user.prenom"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="adresse" class="form-label">Adresse</label>
+                                                        <input type="text"  name="adresse" class="form-control" id="adresse" required="required" t-att-value="user.adresse"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="matricule"  class="form-label">Matricule</label>
+                                                        <input type="number"  name="matricule" class="form-control" id="matricule" disabled="disabled" t-att-value="user.matricule"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telephone" class="form-label">Téléphone</label>
+                                                        <input type="number"  name="telephone" class="form-control" id="telephone" required="required" t-att-value="user.telephone"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="agence" class="form-label"> Agence </label>
+                                                        <select id="agence" name="agence" class="form-control" required="required" t-att-value="user.agence">
+                                                            <option value="Topnet Agence centre urbain nord">Topnet Agence centre urbain nord</option>
+                                                            <option value="Topnet Agence Tunis">Topnet Agence Tunis</option>
+                                                            <option value="Topnet Agence Bardo">Topnet Agence Bardo</option>
+                                                            <option value="Topnet Agence Ennasr">Topnet Agence Ennasr</option>
+                                                            <option value="Topnet Agence La Marsa">Topnet Agence La Marsa</option>
+                                                            <option value="Topnet Agence Le Passage">Topnet Agence Le Passage</option>
+                                                            <option value="Topnet Agence Bizerte">Topnet Agence Bizerte</option>
+                                                            <option value="Topnet Agence Nabeul">Topnet Agence Nabeul</option>
+                                                            <option value="Topnet Agence Khzema">Topnet Agence Khzema</option>
+                                                            <option value="Topnet Agence Sousse">Topnet Agence Sousse</option>
+                                                            <option value="Topnet Agence Monastir">Topnet Agence Monastir</option>
+                                                            <option value="Topnet Agence Sfax">Topnet Agence Sfax</option>
+                                                            <option value="Topnet Agence Taib Mhiri Sfax">Topnet Agence Taib Mhiri Sfax</option>
+                                                            <option value="Topnet Agence El Mourouj">Topnet Agence El Mourouj</option>
+                                                            <option value="Topnet Agence Gabes">Topnet Agence Gabes</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-success">Modifier</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

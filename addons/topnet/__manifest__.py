@@ -3,37 +3,43 @@
     'name': "Topnet",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Topnet Customer Manager Platform""",
 
     'description': """
-        Digital sales for Topnet Company
+        Platefrome de gestion des dossiers clients TOPNET
     """,
 
-    'author': "Topnet",
-    'website': "http://www.topnet.tn",
+    'author': "Topnet, Salmen Aouini",
+    'website': "https://www.topnet.tn",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Sales',
-    'version': '1.0',
+    'category': 'Website',
+    'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['website'],
+    'depends': ['base', 'website', 'contacts'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/user.xml',
-        'views/templates.xml',
-        'views/add_user.xml',
+        'views/views.xml',
+        'views/adduser.xml',
+        'views/add_FO.xml',
+        'views/add_contact.xml',
+        'data/ir_config_parameter.xml',
+        'templates/website_templates.xml',
+        'templates/webclient_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'views/user.xml',
     ],
-    'installable': True,
-    'application': True,
-    'sequence':'10',
+    'installable':True,
+    'application' : True, 
+    'auto_install' : False,
+    'sequence':'10', 
+    'images': ['static/description/banner.png'],
 }

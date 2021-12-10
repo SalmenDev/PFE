@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- template de suivi dossier client -->
+    <template id="suivdoss" name="Suivi de dossier">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Suivi dossier</h3>
+                                        <button type="button" onclick="window.location.href='/liste_dem';" class="btn light btn-success">
+                                            Liste des demandes
+                                            <span class="btn-icon-right"><i class="fa fa-copy"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form" method="POST" validate="True">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="type_offre" class="form-label">Offre client</label>
+                                                        <input type="text" name="type_offre" readonly="readonly"  t-att-value="user.type_offre" id="type_offre" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="matricule" class="form-label">Matricule fiscale</label>
+                                                        <input type="number_format" name="matricule" readonly="readonly"  t-att-value="user.matricule" id="matricule" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="registre" class="form-label">Registre de commerce</label>
+                                                        <input type="text" name="registre" readonly="readonly"  t-att-value="user.registre" id="registre" class="form-control"  required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="date" class="form-label">Date de prise en charge</label>
+                                                        <input type="date" name="date" t-att-value="user.date" readonly="readonly"  id="date" class="form-control" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                         <label for="prise" class="control-label">Prise en charge</label>
+                                                        <input type="text" name="prise" readonly="readonly" t-att-value="user.prise" id="prise"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="agent" class="form-label">Agent commerciale</label>
+                                                        <input type="text" name="agent" t-att-value="user.agent" readonly="readonly"  id="agent" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="etat" class="form-label"> Etat </label>
+                                                        <select id="etat" t-att-value="user.etat" name="etat" class="form-control">
+                                                            <option value="initiale">Initiale</option>
+                                                            <option value="contrat rejeté par topnet">Contrat rejeté par TOPNET</option>
+                                                            <option value="contrat en cours de traitement coté topnet">Contrat en cours de traitement coté TOPNET</option>
+                                                            <option value="Etude">Etude</option>
+                                                            <option value="contrat rejeté par TT">Contrat rejeté par TT</option>
+                                                            <option value="contrat validé par topnet">Contrat validé par TOPNET</option>
+                                                            <option value="ligne installé par TT">ligne installé par TT</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="refdiv" >
+                                                        <label for="ref_etude" class="form-label"> Référende Etude </label>
+                                                        <input type="text" name="ref_etude" readonly="readonly"  t-att-value="user.ref_etude" id="ref_etude" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group" id="fraisdiv" >
+                                                        <label for="frais" class="form-label"> Frais de raccordement </label>
+                                                        <input type="number" readonly="readonly"  name="frais" t-att-value="user.frais" id="frais" class="form-control"  required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-primary"> modifier </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

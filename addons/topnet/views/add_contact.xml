@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Add Contact form -->
+
+    <template id="create_contact" name="Créer Contact">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <form role="form" action="/create/contact" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="form-group">
+                                <label for="contact_name" class="control-label">Nom du Contact</label>
+                                <input type="text" name="contact_name" t-att-value="contact_name" id="contact_name" class="form-control" placeholder="Nom et Prenom" required="required"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact_telfix" class="control-label">Tél Fixe</label>
+                                <input type="text" name="contact_telfix" t-att-value="contact_telfix" id="contact_telfix" class="form-control" placeholder="EX: 71.." required="required"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact_telgsm" class="control-label">Tél Mobile</label>
+                                <input type="text" name="contact_telgsm" t-att-value="contact_telgsm" id="contact_telgsm" class="form-control" placeholder="Nom et Prenom" required="required"></input>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact_email" class="control-label">E-Mail</label>
+                                <input type="email" name="contact_email" t-att-value="contact_email" id="contact_email" class="form-control" placeholder="email@address.com" required="required"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact_nature" class="control-label">Type de Contact</label>
+                                <select class="form-control form-control-sm" name="contact_nature" id="contact_nature">
+                                    <option>Commercial</option>
+                                    <option>Technique</option>
+                                    <option>Administratif</option>
+                                    <option>Financier</option>
+                                </select>                            
+                            </div>
+
+                            <div class="clearfix oe_login_buttons">
+                                <button type="submit" class="btn btn-success">Créer contact</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+<!-- List Contact Table -->
+
+<template id="list_contact" name="Liste de Contacts">
+    <t t-call="website.layout">
+        <div id="wrap">
+            <div class="oe_structure">
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <td>Nom et Prénom</td>
+                            <td>Tél Mobile</td>
+                            <td>Tél Fixe</td>
+                            <td>E-mail</td>
+                            <td>Nature de contact</td>
+                          </tr>
+                        </thead>
+            
+                        <tbody>
+                          <t t-foreach="contacts" t-as="contact">
+                            <tr>
+                              <td>
+                                <t t-esc="contact.name" />
+                              </td>
+                              <td>
+                                <t t-esc="contact.tel_gsm" />
+                              </td>
+                              <td>
+                                <t t-esc="contact.tel_fixe" />
+                              </td>
+                              <td>
+                                <t t-esc="contact.email" />
+                              </td>
+                              <td>
+                                <t t-esc="contact.nature" />
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+
+    <!-- Success Page  -->
+    <template id="contact_thanks" name="Contact Success">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Success !</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success" role="status">
+                                        Le nouveau contact a été ajouté avec succès.
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface consulter fiche  -->
+    <template id="consultfiche" name="coordonnées fiche">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"> Fiche : <t t-esc="fiche.code_cli"/></h3>
+                                        <button type="button" onclick="window.location.href='/liste_fiches';" class="btn light btn-success">
+                                            Liste des fiches
+                                            <span class="btn-icon-right"><i class="fa fa-copy"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                            <form class="row g-3 needs-validation" role="form">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <!-- Générale -->
+                                                <div class='col-md-12'>
+                                                    <h3>Générale</h3>
+                                                </div>
+                                                <div class='col-md-6'>
+                                                    <div class="form-group">
+                                                        <label for="segment" class="form-label"> Segment </label>
+                                                        <input type="select" readonly="readonly" name="segment" class="form-control" id="segment"
+                                                               required="required" t-att-value="fiche.segment" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="s_segment" class="form-label">Sous Segment</label>
+                                                        <input type="select" readonly="readonly" name="s_segment" class="form-control" id="s_segment"
+                                                               required="required" t-att-value="fiche.s_segment" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cat" class="form-label"> Catégorie </label>
+                                                        <input type="select" readonly="readonly" name="cat" class="form-control" id="cat"
+                                                               required="required" t-att-value="fiche.cat" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="charge" class="control-label">Chargé de compte</label>
+                                                        <input type="select" name="charge" readonly="readonly" t-att-value="fiche.charge" id="charge"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="appel" class="control-label">Appel Call Center</label>
+                                                        <input type="number" name="appel" readonly="readonly" t-att-value="fiche.appel" id="appel"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="profil" class="control-label">Profil</label>
+                                                        <input type="text" name="profil" readonly="readonly" t-att-value="fiche.profil" id="profil"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="statut" class="control-label">Statut Recouvrement</label>
+                                                        <input type="text" name="statut"  readonly="readonly" t-att-value="fiche.statut" id="statut"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="always" class="form-label"> Always On </label>
+                                                        <input type="select" readonly="readonly"  name="always" class="form-control" id="always"
+                                                               required="required" t-att-value="fiche.always" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="charge_adv" class="control-label">Chargé ADV</label>
+                                                        <input type="text" readonly="readonly" name="charge_adv" t-att-value="fiche.charge_adv"
+                                                               id="charge_adv" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class='col-md-6'>
+                                                    <div class="form-group">
+                                                        <label for="compte" class="form-label"> Type de compte </label>
+                                                        <input type="select" readonly="readonly" name="compte" class="form-control" id="compte"
+                                                               required="required" t-att-value="fiche.compte" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="code_cli" class="control-label">Code client</label>
+                                                        <input type="number" readonly="readonly" name="code_cli" t-att-value="fiche.code_cli" id="code_cli"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="source" class="control-label">Source Prospect</label>
+                                                        <input type="text" name="source" readonly="readonly" t-att-value="fiche.source" id="source"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ancien" class="control-label">Ancien code client</label>
+                                                        <input type="number" name="ancien" readonly="readonly" t-att-value="fiche.ancien" id="ancien"
+                                                               class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="frequence" class="control-label">Fréquence Compte Facturation
+                                                            par défaut</label>
+                                                        <input type="number" name="frequence" readonly="readonly" t-att-value="fiche.frequence" id="frequence"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <!-- Gonnées Générales -->
+                                                <div class='col-md-12'>
+                                                    <h3>Données Générales</h3>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="raison_soc" class="control-label">Raison Sociale</label>
+                                                        <input type="text" name="raison_soc" readonly="readonly" t-att-value="fiche.raison_soc"
+                                                               id="raison_soc" class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="multi" class="control-label">Multi-sites</label>
+                                                        <input type="select" name="multi" readonly="readonly" t-att-value="fiche.multi"
+                                                               id="multi" class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="groupe" class="control-label">Groupe de société</label>
+                                                        <input type="select" name="groupe" readonly="readonly" t-att-value="fiche.groupe"
+                                                               id="groupe" class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="effectif" class="control-label">Effectif</label>
+                                                        <input type="text" name="effectif" readonly="readonly" t-att-value="fiche.effectif"
+                                                               id="effectif" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cat" class="control-label">Catégorie de système</label>
+                                                        <input type="text" name="cat" readonly="readonly" t-att-value="fiche.cat" id="cat"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="date_debut" class="control-label">Date de début d'activité</label>
+                                                        <input type="Date" name="date_debut" readonly="readonly" t-att-value="fiche.date_debut"
+                                                               id="date_debut" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <!-- Contacts-->
+                                                <div class='col-md-12'>
+                                                    <h4>Contacts</h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="contact_prin" class="control-label">Contact principal</label>
+                                                        <input type="tel" name="contact_prin" readonly="readonly" t-att-value="fiche.contact_prin"
+                                                               id="contact_prin" class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="contact_finan" class="control-label">Contact Financier</label>
+                                                        <input type="tel" name="contact_finan" readonly="readonly" t-att-value="fiche.contact_finan"
+                                                               id="contact_finan" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="contact_tech" class="control-label">Contact technique</label>
+                                                        <input type="Char" name="contact_tech" readonly="readonly" t-att-value="fiche.contact_tech"
+                                                               id="contact_tech" class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="contact_jurid" class="control-label">Contact juridique</label>
+                                                        <input type="Char" name="contact_jurid" readonly="readonly" t-att-value="fiche.contact_jurid"
+                                                               id="contact_jurid" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <!-- Informations sur le Compte -->
+                                                <div class='col-md-12'>
+                                                    <h3>Informations sur le Compte</h3>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="secteur" class="control-label">Secteur d'activité</label>
+                                                        <input type="Char" name="secteur" readonly="readonly" t-att-value="fiche.secteur"
+                                                               id="secteur" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="fiscal" class="control-label">Matricule fiscale</label>
+                                                        <input type="number" name="fiscal" readonly="readonly" t-att-value="fiche.fiscal" id="fiscal"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="chiffre" class="control-label">Chiffre d'affaires annuel</label>
+                                                        <input type="number" name="chiffre" readonly="readonly" t-att-value="fiche.chiffre" id="chiffre"
+                                                               class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="registre_com" class="control-label">Registre de commerce</label>
+                                                        <input type="text" name="registre_com" readonly="readonly" t-att-value="fiche.registre_com"
+                                                               id="registre_com" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="exo_timbre" class="control-label">Exonération timbre</label>
+                                                        <input type="select" name="exo_timbre" readonly="readonly" t-att-value="fiche.exo_timbre"
+                                                               id="registre_com" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="exo" class="control-label">Exonération TVA</label>
+                                                        <input type="select" name="exo" readonly="readonly" t-att-value="fiche.exo"
+                                                               id="exo" class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <!-- Coordonnées Principales -->
+                                                <div class='col-md-12'>
+                                                    <h3>Coordonnées Principales</h3>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="rue" class="control-label">Rue</label>
+                                                        <input type="Char" name="rue" readonly="readonly" t-att-value="fiche.rue" id="rue"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="gouver" class="control-label">Gouvernorat</label>
+                                                        <input type="select" name="gouver" readonly="readonly" t-att-value="fiche.gouver" id="gouver"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="local" class="control-label">Localité</label>
+                                                        <input type="text" name="local" readonly="readonly" t-att-value="fiche.local" id="local"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ville" class="control-label">Ville</label>
+                                                        <input type="text" name="ville" readonly="readonly" t-att-value="fiche.ville" id="ville"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="tel" class="control-label">Tél</label>
+                                                        <input type="tel" name="tel" readonly="readonly" t-att-value="fiche.tel" id="tel"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="gsm_fiche" class="control-label">GSM</label>
+                                                        <input type="tel" name="gsm_fiche" readonly="readonly" t-att-value="fiche.gsm_fiche" id="gsm_fiche"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="mail_top" class="control-label">Email Topnet</label>
+                                                        <input type="email" name="mail_top" readonly="readonly" t-att-value="fiche.mail_top" id="mail_top"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="rue2" class="control-label">Rue(2)</label>
+                                                        <input type="text" name="rue2" readonly="readonly" t-att-value="fiche.rue2" id="rue2"
+                                                               class="form-control" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="delegatio" class="control-label">Délégation</label>
+                                                        <input type="text" name="delegatio" readonly="readonly" t-att-value="fiche.delegatio" id="delegatio"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="code_pos" class="control-label">Code postal</label>
+                                                        <input type="number" name="code_pos" readonly="readonly" t-att-value="fiche.code_pos" id="code_pos"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="paysreg" class="control-label">Pays/Region</label>
+                                                        <input type="text" name="paysreg" readonly="readonly" t-att-value="fiche.paysreg" id="paysreg"
+                                                               class="form-control" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="fax" class="control-label">Fax</label>
+                                                        <input type="number" name="fax" readonly="readonly" t-att-value="fiche.fax" id="fax"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="gsm2" class="control-label">GSM 2</label>
+                                                        <input type="number" name="gsm2" readonly="readonly" t-att-value="fiche.gsm2" id="gsm2"
+                                                               class="form-control" required="required" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="creation" class="control-label">Création nouveau email</label>
+                                                        <input type="text" name="creation" readonly="readonly" t-att-value="fiche.creation" id="creation"
+                                                               class="form-control" required="required" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

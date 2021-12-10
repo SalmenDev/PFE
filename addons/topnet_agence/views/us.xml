@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- template a propos de nous -->
+    <template id="us" name="us">
+        <t t-call="website.layout">
+            <div class='wrap'>
+                <div class="oe_structure">
+                    <div class='container'>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Qui sommes-nous?</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-lg-8 col-md-8'>
+                                <p><strong>TOPNET</strong> est une entreprise tunisienne qui a démarré ses activités le 02 mai 2001, elle est le leader, aujourd’hui, des Fournisseurs d'accès Internet en Tunisie.</p>
+                                <p><strong>TOPNET</strong> devient une filiale de groupe Tunisie Télécom, en Juin 2010, cette acquisition est considérée par Tunisie Télécom comme étant une opération stratégique permettant le renforcement de son leadership à travers un acteur qui, en quelques années, a réussi à se hisser en leader sur le marché des fournisseurs de services Internet (FSI). </p>
+                                <p>Notre valeur est claire : « Garantir la pérennité de notre entreprise en devenant le Fournisseur de Service Internet préféré de nos clients par notre niveau de Qualité ».</p>
+                                <p>Pour atteindre cet objectif, <strong>TOPNET</strong> s’engage à :</p>
+                                <ul class="liste_bleu sans_bordure">
+                                    <li>Garantir la satisfaction du client en étant à son écoute et en répondant à ses attentes, tout en assurant notre rentabilité.</li>
+                                    <li>Enraciner au niveau de notre équipe le sens de l’excellence permanente au service du client, et ce, via l’amélioration continue de notre fonctionnement interne.</li>
+                                    <li>Offrir continuellement de nouveaux produits et services qui répondent aux besoins évolutifs de la clientèle.</li>
+                                    <li>Consolider notre position de leader et notre notoriété pour afficher une meilleure image sur le marché.</li>
+                                </ul>
+                                <div class='col-lg-6 col-md-6'>
+                                    <h1>Notre Engagement</h1>
+                                </div>
+                                <div class='col-lg-8 col-md-8'>
+                                    <p>Toute l’équipe TOPNET répond minutieusement à une charte qualité. Nous nous engageons à: </p>
+                                    <ul class="liste_bleu sans_bordure">
+                                        <li>Une quête continue de la satisfaction client : le sens de l’excellence permanente au service du client, à travers l’amélioration continue de notre fonctionnement interne ;  </li>
+                                        <li>Offrir continuellement de nouveaux produits et services qui répondent aux besoins évolutifs de notre clientèle ; </li>
+                                        <li>Consolider notre position de leader et notre notoriété pour afficher une meilleure image sur le marché. Et c’est pour cette raison que TOPNET a obtenu la certification ISO 9001 et devient ainsi le 1er FSI en Tunisie dont la qualité de service répond aux normes internationales de management de la qualité. En effet, nous nous sommes  lancés dans la démarche de certification au mois de Mars 2009, date à laquelle nous avons débuté le déploiement de nos axes qualité par processus et avons initié, dans la foulée, la standardisation et l’amélioration continue de notre fonctionnement en interne, dans l’unique but de satisfaire ses clients.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+</odoo>

@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_topnet_user,access.topnet.user,model_topnet_user,,1,1,1,1
+access_topnet_contact,access.topnet.contact,model_topnet_contact,,1,1,1,1

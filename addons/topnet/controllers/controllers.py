@@ -1,36 +1,53 @@
 # -*- coding: utf-8 -*-
 from odoo import http
+from werkzeug.wrappers import Request
 from odoo.http import request
 
 
 
-class Topnet(http.Controller):
-    @http.route('/topnet/users/', website='true',  auth='user')
-    def index(self, **kw):
-        users = request.env['topnet.user'].sudo().search([])
-        return request.render("topnet.users_page", {'users':users})
 
 class Topnet(http.Controller):
-    @http.route('/topnet/user_create', website='true', auth='user')
+    @http.route('/contact_list', website='true', auth='user')
     def index(self, **kw):
-        return request.render("topnet.user_create", {})
+        contacts = request.env['topnet.contact'].sudo().search([])
+        return http.request.render("topnet.list_contact", {'contacts':contacts})
 
-#Controller for adding user success
-#class Topnet(http.Controller)
-#    @http.route('/create_sccuess', website='true', auth='user')
-#    def index(self, **kw):
-#        return.render("topnet.user_success", {})
-            
+class Topnet(http.Controller):
+    @http.route('/adduser_form', website='true', auth='user')
+    def index(self, **kw):
+        return http.request.render("topnet.create_user", {})
+        
+class Topnet(http.Controller):
+    @http.route('/addsubscription_form', website='true', auth='user')
+    def index(self, **kw):
+        contacts = request.env['topnet.contact'].sudo().search([])
+        return http.request.render("topnet.create_subscription", {'contacts':contacts})
 
-#     @http.route('/topnet/topnet/objects/', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('topnet.listing', {
-#             'root': '/topnet/topnet',
-#             'objects': http.request.env['topnet.topnet'].search([]),
-#         })
+class Topnet(http.Controller):
+    @http.route('/followdemands', website='true', auth='user')
+    def index(self, **kw):
+        return http.request.render("topnet.create_subscription", {})
 
-#     @http.route('/topnet/topnet/objects/<model("topnet.topnet"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('topnet.object', {
-#             'object': obj
-#         })
+class Topnet(http.Controller):
+    @http.route('/CreateContact', website='true', auth='user')
+    def index(self, **kw):
+        return http.request.render("topnet.create_contact", {})
+
+class Topnet(http.Controller):
+    @http.route('/contact_thanks', website='true', auth='user')
+    def index(self, **kw):
+        return http.request.render("topnet.contact_thanks", {})
+
+
+class Topnet(http.Controller):
+    @http.route('/create/contact',type='http', website='true', auth='user')
+    def index(self, **post):
+        contact = request.env['topnet.contact'].create({
+            'name': post.get('contact_name'),
+            'tel_fixe': post.get('contact_telfix'),
+            'tel_gsm': post.get('contact_telgsm'),
+            'email': post.get('contact_email'),
+            'nature': post.get('contact_nature'),
+            #'client_id': request.uid,  
+        })
+        return http.request.render("topnet.contact_thanks", {})

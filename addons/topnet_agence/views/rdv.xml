@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface prendre un rendez vous -->
+    <template id="rdv" name="Rendez-vous">
+        <t t-call="website.layout">
+            <div class='wrap'>
+                <div class="oe_structure">
+                    <div class='container'>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="topnet_header">Prise de Rendez-vous</h2>
+                            </div>
+                            <div class="col-md-12">
+                                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Africa%2FTunis&amp;src=OTBtNG52YXJoZWFpczg1NWtjNnFvcDZrYTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23D81B60&amp;title=Agenda%20TOPNET" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de l'interface contacter nous -->
+    <template id="contactus" name="Contactez nous">
+        <t t-call="website.layout">
+            <div class='wrap'>
+                <div class="oe_structure">
+                    <div class='container'>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Contactez-nous</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="row g-3" role="form" action="/Contactez/nous" method="POST"
+                                            validate="True">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                            <div class='col-md-12'>
+                                                <div class="form-group">
+                                                    <label for="service" class="form-label"> Service </label>
+                                                    <select id="service" name="service" class="form-control"
+                                                        required="required">
+                                                        <option value="service technique">Service Technique</option>
+                                                        <option value="service commerciale">Service Commerciale
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="nom" class="form-label">Nom</label>
+                                                    <input type="text" name="nom" class="form-control" id="nom"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="prenom" class="form-label">Prénom</label>
+                                                    <input type="text" name="prenom" class="form-control" id="prenom"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="email" name="email" class="form-control" id="email"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tel" class="form-label">Tél</label>
+                                                    <input type="number" name="tel" class="form-control" id="tel"
+                                                        required="required" />
+                                                </div>
+                                            </div>
+                                            <div class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="objet" class="form-label">Objet</label>
+                                                    <input type="text" name="objet" class="form-control" id="objet"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="fax" class="form-label">Fax</label>
+                                                    <input type="number" name="fax" class="form-control" id="fax"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="mobile" class="form-label">Mobile</label>
+                                                    <input type="number" name="mobile" class="form-control" id="mobile"
+                                                        required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message" class="form-label">Message</label>
+                                                    <input type="text" name="message" class="form-control" id="message"
+                                                        required="required" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-success">Envoyer</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Informations</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>Nos agences seront ouvertes</h3>
+                                        <p><strong>Hiver :</strong> du lundi au Vendredi de 8h00 à 18h00<br />
+                                            Samedi de 8h00 à 14h00<br />
+                                            <strong>Été et Ramadan :</strong></p>
+                                        <ul>
+                                            <li>Du lundi au vendredi : de 8h00 jusqu’à 15h00</li>
+                                            <li>Samedi : de 8h00 jusqu’à 14h00</li>
+                                        </ul>
+                                        <button type="submit" onclick="window.location.href='/rdv';" class="btn btn-success">Prise de rendez-vous</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="topnet_header">TOPNET la plus proche de vous</h2>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="wrap_map">
+                                    <div id=""></div>
+                                    <iframe height="385"
+                                        src="https://www.google.com/maps/d/embed?mid=1x1OqtajX4vgskp8aMh7S0k9l3p8"
+                                        width="730">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

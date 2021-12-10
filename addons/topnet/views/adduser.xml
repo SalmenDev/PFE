@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Add User form -->
+
+    <template id="create_user" name="Créer Utilisateur">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <form role="form" action="/create/user" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="form-group">
+                                <label for="user_name" class="control-label">Nom</label>
+                                <input type="text" name="user_name" t-att-value="user_name" id="user_name" class="form-control" placeholder="Nom et Prenom" required="required"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_email" class="control-label">E-Mail</label>
+                                <input type="email" name="user_email" t-att-value="user_email" id="user_email" class="form-control" placeholder="email@address.com" required="required"></input>
+                            </div>
+                            <div class="clearfix oe_login_buttons">
+                                <button type="submit" class="btn btn-success">Créer utilisateur</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <!-- Success Page  -->
+    <record id="user_thanks" model="website.page">
+        <field name="name">Thanks</field>
+        <field name="type">qweb</field>
+        <field name="url">/user-success</field>
+        <field name="website_published">True</field>
+        <field name="key">topnet.user_success</field>
+        <field name="arch" type="xml">
+            <t name="Thanks" t-name="topnet.user_success">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Success !</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success" role="status">
+                                        L'utilisateur a été ajouté avec succès.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+</odoo>

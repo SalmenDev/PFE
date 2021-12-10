@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="suivre_topnet_list">
+      <field name="name">suivre list</field>
+      <field name="model">topnet_agence.suivre</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="ID_contrat"/>
+          <field name="type_offre"/>
+          <field name="matricule"/>
+          <field name="registre"/>
+          <field name="prise"/>
+          <field name="etat"/>
+          <field name="date"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="suivre_client">
+      <field name="name">abonnement form</field>
+      <field name="model">topnet_agence.suivre</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+                <button name="action_confirm" type="object" string="Valider" class="oe_highlight"/>
+                <field name="state"  widget="statusbar"/>
+            </header>
+          <div class="oe_button_box" name="button_box"/>
+          <button name="action_view_suivi" type="object" icon="fa-files-o" class="oe_stat_button" groups="website.group_website_publisher"/>
+          <group>
+            <group>
+              <field name="ID_contrat"/>
+              <field name="type_offre"/>
+            </group>
+            <group>
+              <field name="matricule" attrs="{'invisible': [('etat', '=' , 'contrat en cours de traitement coté topnet')]}"
+                                      options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"  />
+              <field name="registre"/>
+              <field name="prise"/>
+              <field name="etat"/>
+              <field name="Reference" attrs="{'invisible': [('etat', 'in' ,('contrat rejeté par topnet', 'contrat en cours de traitement coté topnet', 'contrat rejeté par TT', 'contrat validé par topnet', 'ligne installé par TT','initiale'))]}"
+                                        options="{'no_create_edit': True, 'no_create': True, 'no_open': True}" />
+              <field name="date"/>
+              </group>
+            <group>
+              <field name="currency_id" attrs="{'invisible': [('etat', 'in' ,('contrat rejeté par topnet', 'contrat rejeté par TT', 'contrat validé par topnet', 'Etude', 'contrat en cours de traitement coté topnet','initiale'))]}"
+                                        options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+               <field name="frais" attrs="{'invisible': [('etat', 'in' ,('contrat rejeté par topnet', 'contrat en cours de traitement coté topnet', 'contrat rejeté par TT', 'contrat validé par topnet', 'Etude','initiale'))]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}" />
+            </group>
+         </group>
+
+        </form>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="suivre_action_window">
+      <field name="name"> Suivi Dossier </field>
+      <field name="res_model">topnet_agence.suivre</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="demandes_clients.action_server">
+      <field name="name">demandes_clients server</field>
+      <field name="model_id" ref="model_demandes_clients_demandes_clients"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+ <!--     <menuitem name="TopnetAgence"
+                id="topnet_agence_menu_root"
+                sequence="10"/>
+-->
+    <!-- menu categories -->
+
+<!--     <menuitem name="suivi dossier"
+              id="suivi_dossier"
+              parent="topnet_agence_menu_root"/>
+
+   <menuitem name="Menu 2" id="demandes_clients.menu_2" parent="demandes_clients.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="Suivi Dossier"
+              id="Suivi_dossier_id"
+              parent="gestion-abonn_FO"
+              action="suivre_action_window"/>
+<!--    <menuitem name="Server to list" id="demandes_clients" parent="demandes_clients.menu_2"
+              action="demandes_clients.action_server"/>
+-->
+  </data>
+</odoo>
